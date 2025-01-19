@@ -19,4 +19,4 @@ agent = Agent(
         )
     ]
 )
-agent.print_response("send an email to gerry04y@gmail.com with the subject 'Hello' and the message 'Hello, Gerry!'", stream=True)
+agent.print_response("Send an email to gerry04y@gmail.com with the subject 'Hello' and the message 'Hello, Gerry!'", stream=True)
