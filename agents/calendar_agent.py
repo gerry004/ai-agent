@@ -19,6 +19,6 @@ calendar_agent = Agent(
         """
     ],
     add_datetime_to_instructions=True,
-    tools=[GoogleCalendarTools(credentials_path="/home/gerry004/ai-agent/credentials.json", token_path="../token.json")],
+    tools=[GoogleCalendarTools(credentials_path="./devcontainer/credentials.json", token_path="../token.json")],
     show_tool_calls=True,
 )
