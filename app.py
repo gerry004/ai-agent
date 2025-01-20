@@ -1,5 +1,5 @@
 import streamlit as st
-from agents import director_agent
+from agents.director_agent import director
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -22,7 +22,7 @@ if (prompt):
     st.session_state.messages.append({'role': 'user', 'content': prompt})
 
     # Pass user input to the agent and get the response
-    response = director_agent.run(prompt, stream=False).content
+    response = director.run(prompt, stream=False).content
     
     # Add the agent's response to the conversation history
     st.chat_message('assistant').markdown(response)
