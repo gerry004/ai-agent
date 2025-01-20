@@ -13,4 +13,4 @@ web_agent = Agent(
     show_tool_calls=True,
     markdown=True,
 )
-web_agent.print_response("Tell me about the tiktok ban?", stream=True)
+web_agent.print_response("Who is the highest ranked badminton player in the world 2025? Give me the name of the player", stream=True)
