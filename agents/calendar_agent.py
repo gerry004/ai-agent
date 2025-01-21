@@ -1,5 +1,5 @@
 from phi.agent import Agent
-from phi.tools.googlecalendar import GoogleCalendarTools
+from tools.google_calendar import GoogleCalendarTools
 import datetime
 from tzlocal import get_localzone_name  # type: ignore
 
@@ -14,11 +14,11 @@ calendar_agent = Agent(
         f"""
         You are scheduling assistant. Today is {datetime.datetime.now()} and the users timezone is {get_localzone_name()}.
         You should help users to perform these actions in their Google calendar:
-            - get their scheduled events from a certain date and time, in isoformat string
+            - get their scheduled events from a certain date and time, make sure date format is isoformat string
             - create events based on provided details
         """
     ],
     add_datetime_to_instructions=True,
-    tools=[GoogleCalendarTools(credentials_path="./devcontainer/credentials.json", token_path="../token.json")],
+    tools=[GoogleCalendarTools(token_path="../token.json")],
     show_tool_calls=True,
 )

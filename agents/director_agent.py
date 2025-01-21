@@ -35,7 +35,7 @@ director = Agent(
         "If the users message is unclear, ask clarifying questions to get more information.",
         "Carefully read the information you have gathered and provide a clear and concise answer to the user.",
         "Do not use phrases like 'based on my knowledge' or 'depending on the information'.",
-        "If you're coordinating between multiple agents, ensure the output from one agent is the input to the next agent where needed.",
+        "Important: if the task of one agent depends on the result of the task from a previous agent, make sure the result is passed on accordingly, if needed.",
     ],
     show_tool_calls=True,
     markdown=True,
