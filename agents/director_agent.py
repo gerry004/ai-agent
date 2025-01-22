@@ -1,5 +1,5 @@
 from phi.agent import Agent
-from phi.knowledge import AgentKnowledge
+from knowledge.knowledge_base import knowledge_base
 from phi.tools.duckduckgo import DuckDuckGo
 from agents.calendar_agent import calendar_agent
 from agents.email_agent import email_agent
@@ -17,10 +17,11 @@ director = Agent(
     """,
     team=[calendar_agent, email_agent, research_agent],
     tools=[DuckDuckGo()],
+    add_chat_history_to_messages=True,
     read_chat_history=True,
     search_knowledge=True,
     prevent_hallucinations=True,
-    knowledge_base=AgentKnowledge(),
+    knowledge_base=knowledge_base,
     instructions=[
         "When the user sends a message, first **think** and determine if:\n"
         " - You can answer by using a tool available to you\n"
