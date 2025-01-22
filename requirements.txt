@@ -43,6 +43,7 @@ openai==1.59.8
 packaging==24.2
 pandas==2.2.3
 peewee==3.17.8
+pgvector==0.3.6
 phidata==2.7.8
 pillow==11.1.0
 pip==24.3.1
