@@ -11,7 +11,7 @@ pdf_knowledge_base = PDFKnowledgeBase(
     # Table name: ai.pdf_documents
     vector_db=PgVector(
         table_name="pdf_documents",
-        db_url="postgresql+psycopg://ai:ai@localhost:5532/ai",
+        db_url="postgresql+psycopg2://ai:ai@localhost:5532/ai",
     ),
     reader=PDFReader(chunk=True),
 )
@@ -24,7 +24,7 @@ website_knowledge_base = WebsiteKnowledgeBase(
     # Table name: ai.website_documents
     vector_db=PgVector(
         table_name="website_documents",
-        db_url="postgresql+psycopg://ai:ai@localhost:5532/ai",
+        db_url="postgresql+psycopg2://ai:ai@localhost:5532/ai",
     ),
 )
 
@@ -36,6 +36,6 @@ knowledge_base = CombinedKnowledgeBase(
     vector_db=PgVector(
         # Table name: ai.combined_documents
         table_name="combined_documents",
-        db_url="postgresql+psycopg://ai:ai@localhost:5532/ai",
+        db_url="postgresql+psycopg2://ai:ai@localhost:5532/ai",
     ),
 )
