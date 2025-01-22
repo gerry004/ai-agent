@@ -5,7 +5,7 @@ def sidebar(upload_dir="uploads"):
     os.makedirs(upload_dir, exist_ok=True)
 
     st.sidebar.title("PDF Knowledge Base")
-    uploaded_file = st.sidebar.file_uploader("Drag and drop your file here", type=None)
+    uploaded_file = st.sidebar.file_uploader("Drag and drop your file here", type="pdf")
 
     if uploaded_file is not None:
         file_path = os.path.join(upload_dir, uploaded_file.name)
