@@ -81,7 +81,7 @@ primp==0.10.1
 prompt_toolkit==3.0.50
 proto-plus==1.25.0
 protobuf==5.29.3
-psycopg2-binary==2.9.6
+psycopg2==2.9.6
 ptyprocess==0.7.0
 pure_eval==0.2.3
 pyarrow==19.0.0
