@@ -47,7 +47,7 @@ def authenticated(func):
                 self.creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_config(CREDENTIALS, SCOPES)
-                self.creds = flow.run_console()
+                self.creds = flow.run_local_server(port=0)
                 # Save the credentials for future use
             with open(self.token_path, "w") as token:
                 token.write(self.creds.to_json())
