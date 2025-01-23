@@ -46,9 +46,7 @@ def authenticated(func):
             if self.creds and self.creds.expired and self.creds.refresh_token:
                 self.creds.refresh(Request())
             else:
-                flow = InstalledAppFlow.from_client_config(
-                    CREDENTIALS, SCOPES
-                )
+                flow = InstalledAppFlow.from_client_config(CREDENTIALS, SCOPES)
                 self.creds = flow.run_local_server(port=0)
                 # Save the credentials for future use
             with open(self.token_path, "w") as token:
@@ -71,12 +69,10 @@ def authenticated(func):
 
 
 class GoogleCalendarTools(Toolkit):
-    def __init__(
-        self, credentials_path: Optional[str] = None, token_path: Optional[str] = None
-    ):
+    def __init__(self, token_path: Optional[str] = None):
         """
         Google Calendar Tool.
-        
+
         :param token_path: Path of the file token.json which stores the user's access and refresh tokens, and is created automatically when the authorization flow completes for the first time.
 
         """
@@ -91,7 +87,6 @@ class GoogleCalendarTools(Toolkit):
         self.creds = None
         self.service = None
         self.token_path = token_path
-        self.creds_path = credentials_path
         self.register(self.list_events)
         self.register(self.create_event)
 
@@ -135,6 +130,18 @@ class GoogleCalendarTools(Toolkit):
                 return json.dumps({"error": "authentication issue"})
         except HttpError as error:
             return json.dumps({"error": f"An error occurred: {error}"})
+
+    @authenticated
+    def list_events_between(self, date_from: str, date_to: str, limit: int = 10) -> str:
+        """
+        List events between two dates from the user's primary calendar.
+
+        Args:
+            date_from (str) : the start date to return events from in date isoformat
+            date_to (str) : the end date to return events from in date isoformat
+            limit (Optional[int]): Number of events to return , default value is 10
+        """
+        pass
 
     @authenticated
     def create_event(
@@ -191,6 +198,16 @@ class GoogleCalendarTools(Toolkit):
         except HttpError as error:
             logger.error(f"An error occurred: {error}")
             return json.dumps({"error": f"An error occurred: {error}"})
+
+    # update_event: update an event based on provided details
+    # delete_event: delete an event based on provided details
+
+
+    # categorise_events_color: categorise events based on their color
+    # categorise_events_ai: categorise events based on their title
+    # find_available_time_slot: find available time slots between two dates and times
+    # find_all_gap_times: find gaps for a certain timeframe calculated between the start of the first event of that timeframe and the end of the last event of that timeframe
+
 
 # gcal = GoogleCalendarTools(token_path="token.json")
 # events = gcal.list_events()

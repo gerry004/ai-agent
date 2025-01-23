@@ -4,8 +4,8 @@ from phi.tools.duckduckgo import DuckDuckGo
 from agents.calendar_agent import calendar_agent
 from agents.email_agent import email_agent
 from agents.research_agent import research_agent
-
 from dotenv import load_dotenv
+
 load_dotenv()
 
 director = Agent(
@@ -41,3 +41,5 @@ director = Agent(
     show_tool_calls=True,
     markdown=True,
 )
+
+director.knowledge.load(recreate=False)

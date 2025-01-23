@@ -1,10 +1,20 @@
 from phi.agent import Agent
-from tools.google_calendar import GoogleCalendarTools
+from tools.google_calendar_tools import GoogleCalendarTools
 import datetime
 from tzlocal import get_localzone_name  # type: ignore
-
 from dotenv import load_dotenv
+
 load_dotenv()
+
+# list_events_from: from a certain date and time
+# list_events_between: between two dates and times
+# categorise_events_color: categorise events based on their color
+# categorise_events_ai: categorise events based on their title
+# find_available_time_slot: find available time slots between two dates and times
+# find_all_gap_times: find gaps for a certain timeframe calculated between the start of the first event of that timeframe and the end of the last event of that timeframe
+# create_event: create an event based on provided details
+# update_event: update an event based on provided details
+# delete_event: delete an event based on provided details
 
 
 calendar_agent = Agent(

@@ -1,8 +1,13 @@
 from phi.agent import Agent
-from tools.send_email import send_email
-
+from tools.email_tools import EmailTools
 from dotenv import load_dotenv
+
 load_dotenv()
+
+# send_email: send an email to a recipient with subject and body
+# schedule_send_email: schedule an email to be sent at a specific time
+# check_email: check email inbox for new messages related to certain keywords
+# archive_email: archive emails in inbox
 
 email_agent = Agent(
     name="Email Agent",
@@ -12,5 +17,11 @@ email_agent = Agent(
         Include receiver email, subject, and body in send_email tool.
         """
     ],
-    tools=[send_email],
+    tools=[
+        EmailTools(
+            sender_email="gerry04y@gmail.com",
+            sender_name="Gerry Yang",
+            sender_passkey="zqqdkqmcjpjqubif",
+        )
+    ],
 )
