@@ -69,7 +69,9 @@ def authenticated(func):
 
 
 class GoogleCalendarTools(Toolkit):
-    def __init__(self, token_path: Optional[str] = None):
+    def __init__(
+        self, credentials_path: Optional[str] = None, token_path: Optional[str] = None
+    ):
         """
         Google Calendar Tool.
 
@@ -86,6 +88,7 @@ class GoogleCalendarTools(Toolkit):
 
         self.creds = None
         self.service = None
+        self.credentials_path = credentials_path
         self.token_path = token_path
         self.register(self.list_events)
         self.register(self.create_event)
