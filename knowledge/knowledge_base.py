@@ -5,7 +5,9 @@ from phi.knowledge.website import WebsiteKnowledgeBase
 from phi.knowledge.pdf import PDFKnowledgeBase, PDFReader
 from phi.vectordb.pgvector import PgVector
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 DATABASE_URL=os.getenv("DATABASE_URL")
 
 pdf_knowledge_base = PDFKnowledgeBase(
