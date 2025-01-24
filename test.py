@@ -16,3 +16,8 @@ pdf_knowledge_base = PDFKnowledgeBase(
     ),
     reader=PDFReader(chunk=True),
 )
+
+
+records = pdf_knowledge_base.vector_db.get_all_records()
+for record in records:
+    print(record["name"])

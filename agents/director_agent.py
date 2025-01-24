@@ -1,5 +1,5 @@
 from phi.agent import Agent
-from knowledge.knowledge_base import knowledge_base
+from knowledge.knowledge_base import pdf_knowledge_base
 from phi.tools.duckduckgo import DuckDuckGo
 from agents.calendar_agent import calendar_agent
 from agents.email_agent import email_agent
@@ -21,7 +21,7 @@ director = Agent(
     read_chat_history=True,
     search_knowledge=True,
     prevent_hallucinations=True,
-    knowledge_base=knowledge_base,
+    knowledge_base=pdf_knowledge_base,
     instructions=[
         "When the user sends a message, first **think** and determine if:\n"
         " - You can answer by using a tool available to you\n"
@@ -31,7 +31,7 @@ director = Agent(
         " - You need to coordinate the tasks between multiple specialized agents\n"
         " - You need to ask a clarifying question",
         "If the user asks about a topic, first ALWAYS search your knowledge base using the `search_knowledge_base` tool.",
-        "If you dont find relevant information in your knowledge base, use the `duckduckgo_search` tool to search the internet.",
+        "If you dont find relevant information in your knowledge base, return that there is no information in the knowledge base.",
         "If the user asks to summarize the conversation, use the `get_chat_history` tool with None as the argument.",
         "If the users message is unclear, ask clarifying questions to get more information.",
         "Carefully read the information you have gathered and provide a clear and concise answer to the user.",
