@@ -1,5 +1,5 @@
 from phi.agent import Agent
-from knowledge.knowledge_base import pdf_knowledge_base
+from knowledge.pdf_knowledge_base import pdf_knowledge_base
 from agents.writer_agent import writer_agent
 from agents.calendar_agent import calendar_agent
 from agents.email_agent import email_agent

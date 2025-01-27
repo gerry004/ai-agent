@@ -1,19 +1,37 @@
 import os
+import time
 from phi.agent import Agent
 from phi.model.deepseek import DeepSeekChat
+from phi.tools.googlesearch import GoogleSearch
 from dotenv import load_dotenv
 
 load_dotenv()
 
 agent = Agent(
     model=DeepSeekChat(api_key=os.getenv("DEEPSEEK_API_KEY")),
+    tools=[GoogleSearch()],
+    show_tool_calls=True,
 )
 
-prompt = """
+writer_prompt = """
     Generate an essay plan for the topic 'The impact of social media on society'.
     Return the result as a list of subheadings, in the format:
     ["<subheading1>", "<subheading2>", "<subheading3>", "<subheading4>", "<subheading5>"]
 """
 
-response = agent.run(prompt)
-print(response.content)
+searcher_prompt = """
+    Search the web for 3 articles related to the title 'The impact of social media on society'.
+    Return the most relevant article, in the format:
+    {
+      title: "<title>",
+      url: "<url>"
+    }
+"""
+
+start_time = time.time()
+response = agent.run(searcher_prompt)
+end_time = time.time()
+
+execution_time = end_time - start_time
+print(f"Execution time: {execution_time:.2f} seconds")
+print(f"Response: {response.content}")

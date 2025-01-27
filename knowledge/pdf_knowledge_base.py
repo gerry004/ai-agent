@@ -1,8 +1,7 @@
-from phi.vectordb.pgvector import PgVector
+import os
 from phi.knowledge.pdf import PDFKnowledgeBase, PDFReader
 from phi.knowledge.pdf import PDFKnowledgeBase, PDFReader
 from knowledge.pg_vector import PgVector
-import os
 from dotenv import load_dotenv
 
 load_dotenv()

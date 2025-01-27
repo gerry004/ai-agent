@@ -7,7 +7,7 @@ from phi.tools.openbb_tools import OpenBBTools
 from phi.tools.pubmed import PubmedTools
 from phi.tools.newspaper4k import Newspaper4k
 from tools.youtube_tools import YouTubeTools
-from knowledge.knowledge_base import pdf_knowledge_base
+from knowledge.pdf_knowledge_base import pdf_knowledge_base
 from dotenv import load_dotenv
 
 load_dotenv()
